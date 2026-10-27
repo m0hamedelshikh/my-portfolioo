@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>محمد شريف | مهندس معماري</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap">
+<style>
+:root{--bg:#f6f4f0;--surface:#fff;--text:#1a1a1a;--muted:#6b6b6b;--accent:#b5651d;--line:#e2ded7;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--surface:#1c1c1c;--text:#f0ede8;--muted:#a09c95;--accent:#d98b45;--line:#2d2d2d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121212;--surface:#1c1c1c;--text:#f0ede8;--muted:#a09c95;--accent:#d98b45;--line:#2d2d2d;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:'Cairo',Tahoma,Arial,sans-serif;line-height:1.8}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 6vw}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.logo{font-weight:800;font-size:1.15rem}.logo span{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-inline-start:20px;font-size:.95rem}
+nav a:hover{color:var(--accent)}
+.hero{padding:12vh 6vw 8vh;max-width:1200px;margin:auto}
+.hero small{color:var(--accent);letter-spacing:.15em;font-weight:600}
+.hero h1{font-size:clamp(2.4rem,7vw,5rem);line-height:1.2;font-weight:800;margin:12px 0}
+.hero p{color:var(--muted);max-width:560px;font-size:1.1rem}
+.btn{display:inline-block;margin-top:24px;background:var(--accent);color:#fff;padding:10px 26px;border-radius:999px;text-decoration:none;font-weight:600}
+section{padding:7vh 6vw;max-width:1200px;margin:auto}
+h2{font-size:1.8rem;margin-bottom:18px;font-weight:800}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{font:inherit;background:none;border:1px solid var(--line);color:var(--text);padding:6px 18px;border-radius:999px;cursor:pointer}
+.filters button.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s}
+.card:hover{transform:translateY(-5px)}
+.img{aspect-ratio:4/3;background-size:cover;background-position:center;position:relative}
+.img.ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.12) 38px 40px),repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.12) 38px 40px)}
+.card div.t{padding:14px 18px}.card b{display:block}.card span{color:var(--muted);font-size:.88rem}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.about p{color:var(--muted)}
+.stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:16px}
+.stats b{display:block;font-size:2rem;color:var(--accent)}
+.contact a{color:var(--accent);text-decoration:none;font-size:1.1rem;display:block}
+footer{text-align:center;color:var(--muted);padding:30px;border-top:1px solid var(--line);font-size:.85rem}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:20;padding:20px}
+#modal.open{display:flex}
+.box{background:var(--surface);max-width:720px;width:100%;border-radius:16px;overflow:hidden;max-height:90%;overflow-y:auto}
+.box .img{aspect-ratio:16/9}.box .body{padding:22px}.box p{color:var(--muted);margin:8px 0}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem;margin-top:10px}
+.x{float:left;font-size:1.6rem;background:none;border:0;color:var(--text);cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">محمد <span>شريف</span></div>
+  <nav><a href="#work">أعمالي</a><a href="#about">نبذة</a><a href="#contact">تواصل</a></nav>
+</header>
+
+<div class="hero">
+  <small>ARCHITECT · مهندس معماري</small>
+  <h1>أصمّم مساحات<br>تعيش فيها الحكاية.</h1>
+  <p>مهندس معماري أعمل على تصميم المشاريع السكنية والتجارية والداخلية بتفاصيل مدروسة وروح عصرية.</p>
+  <a class="btn" href="#work">شاهد أعمالي</a>
+</div>
+
+<section id="work">
+  <h2>أعمالي</h2>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="about">
+  <h2>نبذة عني</h2>
+  <div class="about">
+    <p>أنا محمد شريف، مهندس معماري. أؤمن أن التصميم الجيد يبدأ من فهم احتياج الناس ثم تحويله إلى مساحة عملية وجميلة. (عدّل هذه النبذة بخبراتك وتعليمك.)</p>
+    <div class="stats">
+      <div><b>+5</b>سنوات خبرة</div>
+      <div><b>+20</b>مشروع</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>تواصل معي</h2>
+  <a href="mailto:name@example.com">name@example.com</a>
+  <a href="tel:+200000000000" dir="ltr">+20 000 000 0000</a>
+</section>
+
+<footer>© 2026 محمد شريف — جميع الحقوق محفوظة</footer>
+
+<div id="modal"><div class="box" id="box"></div></div>
+
+<script>
+/* ===== أضف مشاريعك هنا: كل مشروع بيانات واحدة ===== */
+const PROJECTS=[
+ {title:"فيلا التجمع",cat:"سكني",year:2025,place:"القاهرة الجديدة",desc:"فيلا بتصميم عصري تعتمد على الإضاءة الطبيعية والفراغات المفتوحة.",colors:["#b5651d","#3a2a1d"]},
+ {title:"مقر شركة تقنية",cat:"إداري",year:2025,place:"القاهرة",desc:"مساحة عمل مرنة تشجّع على التعاون مع مناطق هادئة للتركيز.",colors:["#3d5a80","#1b2a3b"]},
+ {title:"مقهى ومطعم",cat:"تجاري",year:2024,place:"الإسكندرية",desc:"تصميم داخلي دافئ بخامات طبيعية وإضاءة مميزة.",colors:["#6a994e","#26391b"]},
+ {title:"شقة سكنية",cat:"داخلي",year:2024,place:"الجيزة",desc:"إعادة تصميم كاملة لتحسين استغلال المساحة وتدفق الحركة.",colors:["#9c6b98","#3b2a3a"]},
+ {title:"مجمع سكني",cat:"سكني",year:2023,place:"6 أكتوبر",desc:"مجمع سكني متوسط الارتفاع مع حدائق مشتركة.",colors:["#c1121f","#4a0a0f"]},
+ {title:"معرض تجاري",cat:"تجاري",year:2023,place:"القاهرة",desc:"واجهة زجاجية وتصميم داخلي يبرز المنتجات.",colors:["#2a9d8f","#10403b"]}
+];
+/* لو عندك صورة للمشروع ضيف: img:"رابط أو data:" */
+const g=document.getElementById('grid'),f=document.getElementById('filters'),m=document.getElementById('modal'),box=document.getElementById('box');
+const bg=p=>p.img?`style="background-image:url('${p.img}')"`:`style="background:linear-gradient(135deg,${p.colors[0]},${p.colors[1]})"`;
+const cls=p=>'img'+(p.img?'':' ph');
+function draw(c){
+ g.innerHTML=PROJECTS.map((p,i)=>({p,i})).filter(o=>c==='الكل'||o.p.cat===c).map(({p,i})=>
+ `<div class="card" onclick="openP(${i})"><div class="${cls(p)}" ${bg(p)}></div><div class="t"><b>${p.title}</b><span>${p.cat} · ${p.year}</span></div></div>`).join('');
+}
+function filters(){
+ const cats=['الكل',...new Set(PROJECTS.map(p=>p.cat))];
+ f.innerHTML=cats.map((c,i)=>`<button class="${i?'':'on'}" data-c="${c}">${c}</button>`).join('');
+ f.onclick=e=>{const c=e.target.dataset.c;if(!c)return;[...f.children].forEach(b=>b.classList.toggle('on',b===e.target));draw(c)};
+}
+function openP(i){const p=PROJECTS[i];
+ box.innerHTML=`<div class="${cls(p)}" ${bg(p)}></div><div class="body"><button class="x" onclick="closeP()">×</button><h2>${p.title}</h2><p>${p.desc}</p><div class="meta"><span>التصنيف: ${p.cat}</span><span>السنة: ${p.year}</span><span>الموقع: ${p.place}</span></div></div>`;
+ m.classList.add('open')}
+function closeP(){m.classList.remove('open')}
+m.onclick=e=>{if(e.target===m)closeP()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeP()});
+filters();draw('الكل');
+</script>
+</body>
+</html>
